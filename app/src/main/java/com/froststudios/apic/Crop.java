@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.IOException;
 
 import com.yalantis.ucrop.UCrop;
+import com.yalantis.ucrop.UCropActivity;
 import com.yalantis.ucrop.model.AspectRatio;
 
 public class Crop extends AppCompatActivity {
@@ -35,11 +36,11 @@ public class Crop extends AppCompatActivity {
         options.setActiveWidgetColor(ContextCompat.getColor(this, R.color.colorPrimary)); // Selected aspect ratio indicator and text color
 
         options.setActiveControlsWidgetColor(ContextCompat.getColor(this, android.R.color.white)); // Selected tool icon color
-        // No background color for tools background :c
 
         options.setToolbarTitle("Crop Photo");
         options.setFreeStyleCropEnabled(false);
 
+        options.setAllowedGestures(UCropActivity.SCALE, UCropActivity.ROTATE, UCropActivity.SCALE);
 
         options.setAspectRatioOptions(1,
                 new AspectRatio("2:3", 2, 3),
