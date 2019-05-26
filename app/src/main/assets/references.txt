@@ -1,0 +1,20 @@
+Resources that inspired and helped
+----
+
+Cropping Bitmap into square
+stackoverflow.com/questions/6908604
+
+Offline HTML
+stackoverflow.com/questions/23854227
+
+Openin URL in browser
+https://www.mkyong.com/android/how-to-open-an-url-in-androids-web-browser/
+
+Get current URL from WebView
+stackoverflow.com/questions/23827460/
+
+Simple confirm dialog
+http://jymden.com/android-simple-confirm-dialog/
+
+Self-signed certificates
+https://jebware.com/blog/?p=340

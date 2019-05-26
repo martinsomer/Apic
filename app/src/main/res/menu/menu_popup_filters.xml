@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/color"
+        android:title="Color"
+        tools:ignore="HardcodedText" />
+
+    <item
+        android:id="@+id/saturation"
+        android:title="Saturation"
+        tools:ignore="HardcodedText" />
+
+    <item
+        android:id="@+id/contrast"
+        android:title="Contrast"
+        tools:ignore="HardcodedText" />
+
+    <item
+        android:id="@+id/brightness"
+        android:title="Brightness"
+        tools:ignore="HardcodedText" />
+
+    <item
+        android:id="@+id/vignette"
+        android:title="Vignette"
+        tools:ignore="HardcodedText" />
+
+    <item
+        android:id="@+id/reset"
+        android:title="Remove Filters"
+        tools:ignore="HardcodedText" />
+
+</menu>
