@@ -118,26 +118,30 @@ public class Upload extends AppCompatActivity {
             requestBody.addFormDataPart("imageFile[]", String.valueOf(i.amount),
                 new ProgressTracker(MediaType.parse("image/jpeg"), outStream, new ProgressTracker.ProgressListener() {
 
-                    public void transferred(long total, long length) {
-                        int progress = (int) (total / (float) length * 100);
+                    public void transferred(final long total, final long length) {
 
-                        if (progress == 100) {
-                            // Prevent adding progress when all uploads are complete
-                            if (imagesUploaded < Variables.itemsArray.size() - 1) {
-                                imagesUploaded += 1;
-                            } else {
-                                progressBar.setProgress(100);
-                                return;
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                int progress = (int) (total / (float) length * 100);
+
+                                if (progress == 100) {
+                                    // Prevent adding progress when all uploads are complete
+                                    if (imagesUploaded < Variables.itemsArray.size() - 1) {
+                                        imagesUploaded += 1;
+                                    } else {
+                                        progressBar.setProgress(100);
+                                        return;
+                                    }
+                                }
+
+                                int totalProgress = (imagesUploaded * progressPerImage) + (progress / Variables.itemsArray.size());
+                                String text = "Progress: " + totalProgress + "%";
+
+                                progressText.setText(text);
+                                progressBar.setProgress(totalProgress);
                             }
-
-                        }
-
-                        int totalProgress = (imagesUploaded * progressPerImage) + (progress / Variables.itemsArray.size());
-
-                        String text = "Progress: " + totalProgress + "%";
-
-                        progressText.setText(text);
-                        progressBar.setProgress(totalProgress);
+                        });
                     }
                 })
             );
@@ -182,34 +186,40 @@ public class Upload extends AppCompatActivity {
     }
 
     private void handleFailure() {
+        currentlyUploading = false;
+
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 retryButton.setVisibility(View.VISIBLE);
+                progressText.setText("Upload Failed");
             }
         });
-
-        progressText.setText("Upload Failed");
-        currentlyUploading = false;
     }
 
-    private void handleError(int errorCode) {
+    private void handleError(final int errorCode) {
+        currentlyUploading = false;
+
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 retryButton.setVisibility(View.VISIBLE);
+                progressText.setText("Error Occurred. Code: " + errorCode);
             }
         });
-
-        progressText.setText("Error Occurred. Code: " + errorCode);
-        currentlyUploading = false;
     }
 
     private void handleSuccess(String customerID) {
         Variables.customerID = customerID;
-        progressText.setText("Upload Successful");
         currentlyUploading = false;
         uploadSuccessful = true;
+
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                progressText.setText("Upload Successful");
+            }
+        });
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
