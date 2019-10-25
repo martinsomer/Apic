@@ -7,14 +7,14 @@ import android.view.MenuItem;
 import android.webkit.WebView;
 import android.widget.Toast;
 
-public class License extends AppCompatActivity {
+public class PrivacyPolicy extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_license);
+        setContentView(R.layout.activity_privacy_policy);
 
-        setTitle("License");
+        setTitle("Privacy Policy");
 
         // Actionbar
         ActionBar actionbar = getSupportActionBar();
@@ -22,10 +22,10 @@ public class License extends AppCompatActivity {
         actionbar.setHomeAsUpIndicator(R.drawable.ic_menu_arrow_back);
 
         try {
-            WebView webView = findViewById(R.id.licenseView);
-            webView.loadUrl("file:///android_asset/Apic-License.htm");
+            WebView webView = findViewById(R.id.privacyView);
+            webView.loadUrl("file:///android_asset/Apic-Privacy-Policy.htm");
         } catch (Exception e) {
-            Toast.makeText(this, "License could not be loaded.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Privacy Policy could not be loaded.", Toast.LENGTH_SHORT).show();
             this.finish();
         }
     }

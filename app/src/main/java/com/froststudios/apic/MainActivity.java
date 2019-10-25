@@ -74,10 +74,17 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.fuji.ee/kontakt/"));
                 startActivity(intent);
                 break;
+
             case R.id.terms:
                 Intent terms = new Intent(this, TermsAndConditions.class);
                 startActivity(terms);
                 break;
+
+            case R.id.privacy:
+                Intent privacy = new Intent(this, PrivacyPolicy.class);
+                startActivity(privacy);
+                break;
+
             case R.id.license:
                 Intent license = new Intent(this, License.class);
                 startActivity(license);

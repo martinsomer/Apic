@@ -9,6 +9,12 @@
         android:id="@+id/terms"
         android:title="Terms and Conditions"
         tools:ignore="HardcodedText" />
+
+    <item
+        android:id="@+id/privacy"
+        android:title="Privacy Policy"
+        tools:ignore="HardcodedText" />
+
     <item
         android:id="@+id/license"
         android:title="License"

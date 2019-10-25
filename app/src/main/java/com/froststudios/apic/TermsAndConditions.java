@@ -23,7 +23,7 @@ public class TermsAndConditions extends AppCompatActivity {
 
         try {
             WebView webView = findViewById(R.id.termsView);
-            webView.loadUrl("file:///android_asset/termsandconditions.html");
+            webView.loadUrl("file:///android_asset/Apic-Terms-and-Conditions.htm");
         } catch (Exception e) {
             Toast.makeText(this, "Terms and Conditions could not be loaded.", Toast.LENGTH_SHORT).show();
             this.finish();
